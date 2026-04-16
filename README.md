@@ -45,6 +45,22 @@ Random Forest treinado para identificar colaboradores em risco, com feature impo
 - Top fatores: salário, horas extras, satisfação e tempo de casa
 - Custo estimado de turnover: entre USD 6M e USD 24M para 237 saídas
 
+## Conclusões
+
+A análise revelou que **turnover não é um problema de salário isolado** — é um problema de condições de trabalho que o salário não compensa sozinho.
+
+| Fator | Impacto | Recomendação |
+|---|---|---|
+| Horas extras | ~3x mais risco de saída | Monitorar frequência; custo de substituição supera o custo de ajuste |
+| Satisfação no trabalho | Nota baixa dobra o turnover | eNPS e pesquisas de clima regulares capturam o sinal cedo |
+| Tempo sem promoção | Risco cresce progressivamente | Trilhas de carreira claras reduzem a sensação de estagnação |
+| Nível de cargo | Júnior tem maior risco | Onboarding e acompanhamento próximo nos primeiros 2 anos |
+| Salário | Principal preditor do modelo | Revisões salariais periódicas comparadas ao mercado |
+
+**Impacto financeiro:** as 237 saídas representam entre USD 6M e USD 24M em custo de substituição. Reter um colaborador de alto risco custa entre 5% e 20% desse valor.
+
+**Modelo em produção:** com ROC-AUC de 0.83, o Random Forest consegue identificar com antecedência quem está em risco — transformando um problema reativo em uma decisão preventiva de RH.
+
 ## Como Reproduzir
 
 ```bash
