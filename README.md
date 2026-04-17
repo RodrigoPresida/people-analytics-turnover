@@ -1,57 +1,55 @@
 # People Analytics — Análise e Predição de Turnover
 
-Estudo analítico sobre os fatores que levam colaboradores a deixar uma empresa, usando o dataset IBM HR Analytics. O projeto vai do perfil dos funcionários até um modelo preditivo de Machine Learning com estimativa de impacto financeiro.
+![Status](https://img.shields.io/badge/status-concluído-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python)
+![Plotly](https://img.shields.io/badge/Plotly-interativo-blueviolet?logo=plotly)
+![ML](https://img.shields.io/badge/ML-Random%20Forest-orange?logo=scikit-learn)
+![Dados](https://img.shields.io/badge/dados-IBM%20HR%20Analytics-lightgrey)
 
-## Estrutura do Projeto
+Estudo analítico sobre os fatores que levam colaboradores a deixar uma empresa. O projeto vai do perfil dos funcionários até um modelo preditivo de Machine Learning com estimativa de impacto financeiro.
 
-```
-people-analytics-turnover/
-│
-├── notebooks/
-│   ├── 01_eda_perfil_colaboradores.ipynb   # Quem são os colaboradores?
-│   ├── 02_analise_turnover.ipynb           # Por que eles saem?
-│   └── 03_modelo_predicao.ipynb            # Quem está em risco?
-│
-├── data/
-│   └── raw/                               # Dataset IBM HR (baixar do Kaggle)
-│
-├── requirements.txt
-└── README.md
-```
+> *"Turnover não é um problema de salário isolado — é um problema de condições de trabalho que o salário não compensa sozinho."*
+
+---
+
+## Motivação
+
+Esse projeto faz parte de uma série de People Analytics desenvolvida como portfólio. A pergunta central é a mais cara para qualquer área de RH: **quem está prestes a sair — e o que fazer antes que isso aconteça?**
+
+Os dados do IBM HR Analytics permitem investigar essa pergunta com profundidade: 1.470 colaboradores, 35 variáveis, e uma variável-alvo clara. O modelo resultante transforma um problema reativo em uma decisão preventiva.
+
+---
 
 ## Notebooks
 
-### 01 — Perfil dos Colaboradores
-Análise exploratória do headcount: composição demográfica, distribuição salarial por departamento, tempo de casa e taxa de turnover por nível de cargo.
+| # | Notebook | Descrição | Status |
+|---|---|---|---|
+| 01 | `01_eda_perfil_colaboradores.ipynb` | Composição demográfica, distribuição salarial por departamento, tempo de casa e taxa de turnover por nível de cargo | ✅ |
+| 02 | `02_analise_turnover.ipynb` | Fatores associados à saída: horas extras, satisfação, equilíbrio trabalho-vida, tempo sem promoção e viagens | ✅ |
+| 03 | `03_modelo_predicao.ipynb` | Random Forest com feature importance, validação cruzada e estimativa de impacto financeiro | ✅ |
 
-**Principais achados:**
-- Taxa geral de turnover de 16,1% — acima do limite saudável de 15%
-- Profissionais júnior têm o maior risco de saída
-- Salário médio de quem sai é sistematicamente menor dentro do mesmo departamento
+---
 
-### 02 — Análise dos Fatores de Turnover
-Investigação das variáveis que mais se associam à decisão de sair: horas extras, satisfação, equilíbrio trabalho-vida, tempo sem promoção e viagens.
+## Principais Achados
 
-**Principais achados:**
-- Quem faz horas extras tem ~3x mais chance de sair
-- Baixa satisfação com o trabalho dobra a taxa de turnover
-- Diagnóstico de ausência de crescimento: turnover cresce com o tempo sem promoção
+| Achado | Valor |
+|---|---|
+| Taxa geral de turnover | **16,1%** — acima do limite saudável de 15% |
+| Impacto de horas extras | **~3× mais chance** de sair |
+| Impacto de satisfação baixa | **dobra** a taxa de turnover |
+| ROC-AUC do modelo | **0,83** (validação cruzada 5-fold) |
+| Custo estimado das 237 saídas | **USD 6M–24M** em substituição |
+| Cargo de maior risco | **Júnior** — menor salário e menor perspectiva de crescimento |
 
-### 03 — Modelo Preditivo de Turnover
-Random Forest treinado para identificar colaboradores em risco, com feature importance para priorizar ações de RH e estimativa de impacto financeiro do turnover.
+> O principal preditor não é o salário em si — é a combinação de salário baixo, horas extras e ausência de crescimento percebido.
 
-**Resultados:**
-- ROC-AUC ≈ 0.83 (validação cruzada 5-fold)
-- Top fatores: salário, horas extras, satisfação e tempo de casa
-- Custo estimado de turnover: entre USD 6M e USD 24M para 237 saídas
+---
 
 ## Conclusões
 
-A análise revelou que **turnover não é um problema de salário isolado** — é um problema de condições de trabalho que o salário não compensa sozinho.
-
 | Fator | Impacto | Recomendação |
 |---|---|---|
-| Horas extras | ~3x mais risco de saída | Monitorar frequência; custo de substituição supera o custo de ajuste |
+| Horas extras | ~3× mais risco de saída | Monitorar frequência; custo de substituição supera o custo de ajuste |
 | Satisfação no trabalho | Nota baixa dobra o turnover | eNPS e pesquisas de clima regulares capturam o sinal cedo |
 | Tempo sem promoção | Risco cresce progressivamente | Trilhas de carreira claras reduzem a sensação de estagnação |
 | Nível de cargo | Júnior tem maior risco | Onboarding e acompanhamento próximo nos primeiros 2 anos |
@@ -59,7 +57,7 @@ A análise revelou que **turnover não é um problema de salário isolado** — 
 
 **Impacto financeiro:** as 237 saídas representam entre USD 6M e USD 24M em custo de substituição. Reter um colaborador de alto risco custa entre 5% e 20% desse valor.
 
-**Modelo em produção:** com ROC-AUC de 0.83, o Random Forest consegue identificar com antecedência quem está em risco — transformando um problema reativo em uma decisão preventiva de RH.
+---
 
 ## Como Reproduzir
 
@@ -79,12 +77,15 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
+---
+
 ## Dataset
 
-**IBM HR Analytics Employee Attrition & Performance**
-- Fonte: [Kaggle](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
-- 1.470 colaboradores, 35 variáveis
-- Variável alvo: `Attrition` (Yes/No)
+| Base | Fonte | Variáveis |
+|---|---|---|
+| IBM HR Analytics Employee Attrition & Performance | [Kaggle](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) | 1.470 colaboradores, 35 variáveis — alvo: `Attrition` (Yes/No) |
+
+---
 
 ## Stack
 
@@ -95,8 +96,9 @@ jupyter notebook
 | Plotly | Visualizações interativas |
 | Scikit-learn | Modelo preditivo (Random Forest) |
 
+---
+
 ## Autor
 
-**Rodrigo Presida**  
-Estudante de Ciência de Dados — último semestre  
-[LinkedIn](https://www.linkedin.com/in/rodrigopresida) · [GitHub](https://github.com/RodrigoPresida)
+**Rodrigo Cruz dos Santos**
+[LinkedIn](https://www.linkedin.com/in/rodrigopresidati) · [GitHub](https://github.com/RodrigoPresida)
